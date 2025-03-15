@@ -5,55 +5,66 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.foodhub.databinding.FragmentRegistrationBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegistrationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
 class RegistrationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentRegistrationBinding
+    private val viewModel: RegistrationViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false)
+        binding= FragmentRegistrationBinding.inflate(inflater,container,false)
+        setlistener()
+        registrationObserver()
+        return binding.root
     }
+    private fun setlistener() {
+        with(binding){
+            RrgisTV2.setOnClickListener {
+                userNam.isEmpty()
+                EmailTV1.isEmpty()
+                passTV1.isEmpty()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistrationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                if (!userNam.isEmpty() && !EmailTV1.isEmpty() && !passTV1.isEmpty()){
+                   Toast.makeText(context,"All Input Done.!",Toast.LENGTH_LONG).show()
+                    val user= UserRegistr(
+                        userNam.text.toString(),
+                        EmailTV1.text.toString(),
+                        passTV1.text.toString(),
+                        "seller",
+                        ""
+                        )
+                    viewModel.userResistration(user)
                 }
             }
+
+        }
     }
+    private fun registrationObserver() {
+        viewModel.reistrationRespons.observe(viewLifecycleOwner) {
+            when(it){
+                is DataState.Error<*> -> {
+                    Toast.makeText(context,it.massage, Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Loding<*> -> {
+                    Toast.makeText(context,"Lodding...!", Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Suscess<*> -> {
+                    Toast.makeText(context,"Created User: ${it.data}", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
+
+    }
+
+
 }

@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/back"
     tools:context=".RegistrationFragment">
+    
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/lotti2"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_gravity="center"/>
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aclonica"
+        android:layout_marginTop="20dp"
+        android:text="Food Hub Registr.."
+        android:textAppearance="@style/MaterialAlertDialog.Material3"
+        android:textColor="#673AB7"
+        android:gravity="center"
+        android:textSize="25dp"/>
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User Name..."
+        app:errorTextColor="@color/black"
+        android:layout_marginTop="15sp"
+        android:layout_marginHorizontal="25sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userNam"
+            android:inputType="text"
+            app:errorTextColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User Email..."
+        app:errorTextColor="@color/black"
+        android:layout_marginTop="15sp"
+        android:layout_marginHorizontal="25sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EmailTV1"
+            android:inputType="textEmailAddress"
+            app:errorTextColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User Password..."
+        app:endIconMode="password_toggle"
+        app:errorTextColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="25sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passTV1"
+            android:inputType="textPassword"
+            app:errorTextColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/RrgisTV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textSize="20dp"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#04C1D9"/>
+
+
+
+
+</LinearLayout>

@@ -3,10 +3,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WelcomeFragment"
-    android:background="#7E8181"
+    android:background="@drawable/back"
     android:orientation="vertical"
     android:gravity="center">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/lotti1"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Welcome to Food Hub..."
+        android:textAppearance="@style/MaterialAlertDialog.Material3"
+        android:textColor="#F5F8F8"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginTV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="25dp"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#03A9F4"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aclonica"
+        android:text="or"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/MaterialAlertDialog.Material3"
+        android:textColor="#F5F8F8"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/RegisterTV1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registr"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#03A9F4"/>
+
 
 
 

@@ -71,7 +71,10 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
 
     //ssp/sdp
-    implementation("com.intuit.ssp-android:1.1.1")
-    implementation("com.intuit.sdp-android:1.1.1")
+    //implementation("com.intuit.ssp-android:1.1.1")
+   // implementation("com.intuit.sdp-android:1.1.1")
+
+    //anemation
+    implementation(libs.lottie)
 
 }
