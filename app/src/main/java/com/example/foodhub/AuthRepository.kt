@@ -6,10 +6,19 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class AuthRepository: AuthSrvice {
-    override fun userRegistration(user: UserRegistr): Task<AuthResult> {
+
+    override fun userRegistration(user: UserRegistr):Task<AuthResult> {
+
         val mumin= FirebaseAuth.getInstance()
 
         return mumin.createUserWithEmailAndPassword(user.email,user.password )
+    }
+
+    override fun userLogin(user: UserLogin):Task<AuthResult> {
+
+        val mumin= FirebaseAuth.getInstance()
+
+        return mumin.signInWithEmailAndPassword(user.email,user.password)
     }
 
 
