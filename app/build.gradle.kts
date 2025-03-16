@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+   
 }
 
 android {
@@ -70,11 +71,14 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
+
     //ssp/sdp
     //implementation("com.intuit.ssp-android:1.1.1")
    // implementation("com.intuit.sdp-android:1.1.1")
 
     //anemation
     implementation(libs.lottie)
+
+
 
 }
