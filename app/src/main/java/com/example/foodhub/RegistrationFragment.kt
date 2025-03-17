@@ -4,7 +4,9 @@ package com.example.foodhub
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.foodhub.databinding.FragmentRegistrationBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegistrationFragment : BasteFragment<FragmentRegistrationBinding>
     (FragmentRegistrationBinding::inflate) {
 

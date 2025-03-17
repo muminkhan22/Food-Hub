@@ -2,8 +2,9 @@ package com.example.foodhub
 
 import androidx.navigation.fragment.findNavController
 import com.example.foodhub.databinding.FragmentWelcomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class WelcomeFragment : BasteFragment<FragmentWelcomeBinding>
     (FragmentWelcomeBinding::inflate) {
 
