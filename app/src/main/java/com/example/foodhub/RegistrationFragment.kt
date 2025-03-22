@@ -3,6 +3,7 @@ package com.example.foodhub
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.foodhub.databinding.FragmentRegistrationBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,6 +55,7 @@ class RegistrationFragment : BasteFragment<FragmentRegistrationBinding>
                 is DataState.Suscess<*> -> {
                     loader.dismiss()
                     Toast.makeText(context, "Created User: ${it.data}", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_registrationFragment_to_userFragment)
 
                 }
             }

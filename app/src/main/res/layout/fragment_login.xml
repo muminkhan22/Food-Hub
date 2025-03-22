@@ -36,7 +36,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userTV1"
+            android:id="@+id/userEmilTV"
             app:errorTextColor="#000"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passTV1"
+            android:id="@+id/passTV"
             android:inputType="textPassword"
             app:errorTextColor="#000"
             android:layout_width="match_parent"
