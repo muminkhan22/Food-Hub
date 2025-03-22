@@ -1,6 +1,5 @@
 package com.example.foodhub
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,19 +12,24 @@ class RegistrationViewModel @Inject constructor(private val authSrvice: AuthRepo
     val reistrationRespons: LiveData<DataState<UserRegistr>> =_reistrationRespons
 
     fun userResistration(user: UserRegistr){
-        _reistrationRespons.postValue(DataState.Loding())
+            _reistrationRespons.postValue(DataState.Loding())
 
+        authSrvice.userRegistration(user).
+        addOnSuccessListener {
+            it.user?.let{createUser->
+                user.UserID =createUser.uid
+                authSrvice.createUser(user).addOnSuccessListener {
+                    _reistrationRespons.postValue(DataState.Suscess(user))
+                }.addOnFailureListener { error->
+                    _reistrationRespons.postValue(DataState.Error("${error.message}"))
 
-       authSrvice.userRegistration(user).addOnCanceledListener {
-           _reistrationRespons.postValue(DataState.Suscess(user))
+                }
 
-       }.addOnFailureListener {error->
+            }
+        }.addOnFailureListener {error->
            _reistrationRespons.postValue(DataState.Error("${error.message}"))
 
        }
-
-
-
 
 
     }

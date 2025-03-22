@@ -21,7 +21,7 @@ class RegistrationFragment : BasteFragment<FragmentRegistrationBinding>
                 passTV1.isEmpty()
 
                 if (!userNam.isEmpty() && !EmailTV1.isEmpty() && !passTV1.isEmpty()) {
-                    Toast.makeText(context, "All Input Done.!", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context, "All Input Done.!", Toast.LENGTH_LONG).show()
                     val user = UserRegistr(
                         userNam.text.toString(),
                         EmailTV1.text.toString(),

@@ -15,7 +15,7 @@ class LoginViewModel @Inject constructor(private val authSrvice: AuthRepository)
         _loginRespons.postValue(DataState.Loding())
 
 
-       authSrvice.userLogin(user).addOnCanceledListener {
+       authSrvice.userLogin(user).addOnSuccessListener {
            _loginRespons.postValue(DataState.Suscess(user))
 
        }.addOnFailureListener {error->

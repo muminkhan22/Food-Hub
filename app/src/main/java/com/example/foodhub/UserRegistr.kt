@@ -5,7 +5,7 @@ data class UserRegistr(
     val email: String,
     val password: String,
     val userType: String,
-    val UserID: String
+    var UserID: String
 
 )
 
