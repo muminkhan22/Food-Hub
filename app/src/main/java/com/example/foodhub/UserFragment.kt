@@ -3,9 +3,10 @@ package com.example.foodhub
 import androidx.navigation.fragment.findNavController
 import com.example.foodhub.databinding.FragmentUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class UserFragment : BasteFragment<FragmentUserBinding>(FragmentUserBinding::inflate) {
 
     @Inject
