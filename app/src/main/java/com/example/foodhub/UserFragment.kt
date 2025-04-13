@@ -16,13 +16,8 @@ class UserFragment : BasteFragment<FragmentUserBinding>(FragmentUserBinding::inf
             logout.setOnClickListener {
                 mumin.signOut()
                 findNavController().navigate(R.id.action_userFragment_to_welcomeFragment)
-
             }
         }
-
     }
-
-    override fun allObserver() {
-
-    }
+    override fun allObserver() {}
 }
