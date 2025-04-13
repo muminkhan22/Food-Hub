@@ -1,5 +1,6 @@
 package com.example.foodhub
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -49,8 +50,8 @@ class LoginFragment : BasteFragment<FragmentLoginBinding>(FragmentLoginBinding::
                 is DataState.Suscess<*> -> {
                     loader.dismiss()
                     Toast.makeText(context, "Created User: ${it.data}", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_userFragment)
-
+                    startActivity(Intent(requireContext(), Seller_Dasbord::class.java))
+                    requireActivity().finish()
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.example.foodhub
 
+import android.content.Intent
 import androidx.navigation.fragment.findNavController
 import com.example.foodhub.databinding.FragmentWelcomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +25,8 @@ class WelcomeFragment : BasteFragment<FragmentWelcomeBinding>
 
     private fun setUpAutoLogin() {
         FirebaseAuth.getInstance().currentUser?.let{
-            findNavController().navigate(R.id.action_welcomeFragment_to_userFragment)
+            startActivity(Intent(requireContext(), Seller_Dasbord::class.java))
+            requireActivity().finish()
         }
     }
 

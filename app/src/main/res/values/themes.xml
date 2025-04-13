@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.FoodHub" parent="Base.Theme.FoodHub" />
+    <style name="Theme.FoodHub.App.Bar" parent="Theme.Material3.DayNight" />
 </resources>
