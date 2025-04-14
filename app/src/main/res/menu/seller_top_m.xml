@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/report"
+        android:id="@+id/report"
+        android:icon="@drawable/business_analytics_icon"
+        />
+
+    <item
+        android:title="@string/sattings"
+        android:id="@+id/sattings"
+        android:icon="@drawable/setting_icon"
+        />
+    <item
+        android:title="@string/logout"
+        android:id="@+id/logout"
+        android:icon="@drawable/emergency_exit_icon"
+        />
+</menu>

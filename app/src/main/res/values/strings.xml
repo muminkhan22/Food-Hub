@@ -5,4 +5,7 @@
     <string name="product">Product</string>
     <string name="add">Add</string>
     <string name="profile">Profile</string>
+    <string name="report">Report</string>
+    <string name="sattings">Sattings</string>
+    <string name="logout">Logout</string>
 </resources>
