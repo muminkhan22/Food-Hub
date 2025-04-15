@@ -24,12 +24,6 @@
                 android:id="@+id/logout"
                 android:icon="@drawable/emergency_exit_icon"
                 />
-
         </menu>
-
-
     </item>
-
-
-
 </menu>

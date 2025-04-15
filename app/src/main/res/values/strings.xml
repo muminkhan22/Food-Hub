@@ -10,4 +10,9 @@
     <string name="logout">Logout</string>
     <string name="menu">Menu</string>
     <string name="mun">Mun</string>
+    <string name="product_name">Product Name..?</string>
+    <string name="product_description">Product Description..?</string>
+    <string name="product_price">Product Price..?</string>
+    <string name="product_amount">Product Amount..?</string>
+    <string name="upload_product">Upload Product</string>
 </resources>
