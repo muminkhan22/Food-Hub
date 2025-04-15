@@ -15,4 +15,5 @@
     <string name="product_price">Product Price..?</string>
     <string name="product_amount">Product Amount..?</string>
     <string name="upload_product">Upload Product</string>
+    <string name="upload">upload</string>
 </resources>
