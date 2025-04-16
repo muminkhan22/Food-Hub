@@ -89,6 +89,7 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
                 //Image Uri will not be null for RESULT_OK
                 val fileUri = data?.data!!
                 Log.d("TAG", "$fileUri")
+                binding.usprofile.setImageURI(fileUri)
 
 
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
