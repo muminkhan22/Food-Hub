@@ -17,7 +17,8 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
 ) {
     override fun setlistener() {
 
-        var permissionsRequest = getpermissionsRequest()
+        permissionsRequest= getpermissionsRequest()
+
 
         binding.apply {
             usprofile.setOnClickListener {
@@ -51,14 +52,16 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
 
                 ImagePicker.with(this)
                     .compress(1024)         //Final image size will be less than 1 MB(Optional)
-                    .maxResultSize(512, 512)  //Final image resolution will be less than 1080 x 1080(Optional)
+                    .maxResultSize(512,512)  //Final image resolution will be less than 1080 x 1080(Optional)
                     .createIntent { intent ->
                         startForProfileImageResult.launch(intent)
                     }
 
-
             }else{
-                Toast.makeText(requireContext(),"Not Granted",Toast.LENGTH_LONG).show() }
+                Toast.makeText(requireContext(),"Not Granted",Toast.LENGTH_LONG).show()
+
+
+            }
         }
     }
 
@@ -73,8 +76,10 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
         private val parmissionList= arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA
-        ) }
 
+        )
+    }
+    private lateinit var permissionsRequest: ActivityResultLauncher<Array<String>>
     private val startForProfileImageResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             val resultCode = result.resultCode
@@ -83,8 +88,7 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
             if (resultCode == Activity.RESULT_OK) {
                 //Image Uri will not be null for RESULT_OK
                 val fileUri = data?.data!!
-                Log.d("TAG", "$fileUri ")
-                binding.usprofile.setImageURI(fileUri)
+                Log.d("TAG", "$fileUri")
 
 
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
@@ -93,7 +97,6 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
                 Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
             }
         }
-
 
 }
 
