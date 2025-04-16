@@ -14,7 +14,8 @@
         <ImageView
             android:id="@+id/usprofile"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/user_profile_svgrepo_com"
            />
 
@@ -87,16 +88,16 @@
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <Button
             android:id="@+id/uploadproduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:text="@string/upload"
-            android:layout_marginHorizontal="60dp"
-            android:textSize="25dp"
-            android:textStyle="bold"/>
+            android:textSize="20dp"
+            android:layout_marginHorizontal="120dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#03A9F4"/>
 
 
     </LinearLayout>

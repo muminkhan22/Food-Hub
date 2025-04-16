@@ -26,6 +26,7 @@ class Seller_Dasbord : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding= ActivitySellerDasbordBinding.inflate(layoutInflater)
 
+
         setContentView(binding.root)
         navController = findNavController(R.id.fragmentContainerView2)
            val appBarConfig= AppBarConfiguration(setOf(
