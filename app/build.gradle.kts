@@ -73,7 +73,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
 
 
-    //ssp/sdp
+
 
 
     //anemation

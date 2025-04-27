@@ -39,7 +39,6 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
                 )
                 UploadProduct(product)
             }
-
         }
 
 
