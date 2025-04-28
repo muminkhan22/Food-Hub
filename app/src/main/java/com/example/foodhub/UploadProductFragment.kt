@@ -7,14 +7,22 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.viewModels
 import com.example.foodhub.databinding.FragmentUploadProductBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.UUID
 
 @AndroidEntryPoint
 class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
     FragmentUploadProductBinding::inflate
 ) {
+
+      private val product: Product by lazy() {
+          Product()
+      }
+    private val viewModel: ProdectUolidViewModel by viewModels()
     override fun setlistener() {
 
         permissionsRequest= getpermissionsRequest()
@@ -31,13 +39,20 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
                 val description=productdescription.extract()
                 val amount= productamount.extract()
 
-                val product= product(
-                    name=name,
-                    price=price.toDouble(),
-                    description=description,
-                    amount=amount.toInt()
-                )
-                UploadProduct(product)
+
+                 FirebaseAuth.getInstance().currentUser?.let {
+
+                     product.apply {
+                         this.productId= UUID.randomUUID().toString()
+                         this.sellerId= it.uid
+                         this.name = name
+                         this.description = description
+                         this.price = price.toDouble()
+                         this.amount = amount.toInt()
+                     }
+                 }
+
+                 UploadProduct(product)
             }
         }
 
@@ -64,11 +79,28 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
         }
     }
 
-    private fun UploadProduct(product: product) {
+    private fun UploadProduct(product: Product) {
+
+        viewModel.prodectUplod(product)
 
     }
 
     override fun allObserver() {
+        viewModel.prodectUplodRespons.observe(viewLifecycleOwner) {
+            when(it){
+                is DataState.Error -> {
+                    loader.dismiss()
+                }
+                is DataState.Loding -> {
+                    loader.show()
+                }
+                is DataState.Suscess -> {
+                    Toast.makeText(requireContext(),it.data, Toast.LENGTH_LONG).show()
+                    loader.dismiss()
+
+                }
+            }
+        }
 
     }
     companion object{
@@ -89,6 +121,8 @@ class UploadProductFragment : BasteFragment<FragmentUploadProductBinding>(
                 val fileUri = data?.data!!
                 Log.d("TAG", "$fileUri")
                 binding.usprofile.setImageURI(fileUri)
+
+                product.imageLink = fileUri.toString()
 
 
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
